@@ -1,0 +1,20 @@
+name: Test
+on:
+  push:
+    branches:
+      - '**'
+      
+  workflow_dispatch:
+    inputs:
+      test_data:
+        required: false
+        type: string
+        default: "test data"
+      
+      
+jobs:
+  print:
+    - name: print env
+        env:
+          ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
+        run: echo $ENV_VAR_NAME
