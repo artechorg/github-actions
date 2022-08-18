@@ -14,7 +14,9 @@ on:
       
 jobs:
   print:
-    - name: print env
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env
         env:
           ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
         run: echo $ENV_VAR_NAME
