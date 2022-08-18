@@ -5,14 +5,15 @@ on:
       - '**'
       
   workflow_dispatch:
-    test_data:
-      required: false
-      type: string
-      default: "test data"
+    inputs:
+      test_data:
+        required: false
+        type: string
+        default: "test data"
       
       
 jobs:
   service:
-    uses: artechorg/common-workflow/.github/workflows/common-workflow.yaml@main
+    uses: artechorg/common-workflows/.github/workflows/common-workflows.yaml@main
     with:
       test_data: ${{ github.event.inputs.test_data == '' && 'test data' || toJson(github.event.inputs)['test_data'] }}
