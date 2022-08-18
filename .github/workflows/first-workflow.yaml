@@ -17,3 +17,5 @@ jobs:
     uses: artechorg/common-workflows/.github/workflows/common-workflows.yaml@main
     with:
       test_data: ${{ github.event.inputs.test_data == '' && 'test data' || toJson(github.event.inputs)['test_data'] }}
+    secrets:
+      FIRST_SECRET: ${{ secrets.FIRST_SECRET }}
