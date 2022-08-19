@@ -15,3 +15,4 @@ jobs:
       event_inputs: ${{ github.event.inputs == '' && '{}' || toJson(github.event.inputs) }}
     secrets:
       FIRST_SECRET: ${{ secrets.FIRST_SECRET }}
+      TEST2: ""
