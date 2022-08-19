@@ -1,22 +1,17 @@
-name: Test
+name: First workflow
 on:
   push:
     branches:
       - '**'
       
   workflow_dispatch:
-    inputs:
-      test_data:
-        required: false
-        type: string
-        default: "test data"
       
       
 jobs:
   service:
     uses: artechorg/common-workflows/.github/workflows/common-workflows.yaml@main
     with:
-      test_data: ${{ github.event.inputs.test_data == '' && 'test data' || toJson(github.event.inputs)['test_data'] }}
+      test_data: ""
       event_inputs: ${{ github.event.inputs == '' && '{}' || toJson(github.event.inputs) }}
     secrets:
       FIRST_SECRET: ${{ secrets.FIRST_SECRET }}
